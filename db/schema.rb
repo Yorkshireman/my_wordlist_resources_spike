@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_135909) do
+ActiveRecord::Schema.define(version: 2019_05_06_192111) do
 
   create_table "wordlist_entries", force: :cascade do |t|
     t.integer "word_id"
     t.integer "wordlist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["word_id"], name: "index_wordlist_entries_on_word_id"
     t.index ["wordlist_id"], name: "index_wordlist_entries_on_wordlist_id"
   end
