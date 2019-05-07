@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_192111) do
+ActiveRecord::Schema.define(version: 2019_05_07_004709) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", limit: 30
+  end
 
   create_table "wordlist_entries", force: :cascade do |t|
     t.integer "word_id"
@@ -20,6 +24,15 @@ ActiveRecord::Schema.define(version: 2019_05_06_192111) do
     t.string "description"
     t.index ["word_id"], name: "index_wordlist_entries_on_word_id"
     t.index ["wordlist_id"], name: "index_wordlist_entries_on_wordlist_id"
+  end
+
+  create_table "wordlist_entry_categories", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "wordlist_entry_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_wordlist_entry_categories_on_category_id"
+    t.index ["wordlist_entry_id"], name: "index_wordlist_entry_categories_on_wordlist_entry_id"
   end
 
   create_table "wordlists", force: :cascade do |t|
