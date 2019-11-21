@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :wordlists
+  get 'wordlist', to: 'wordlists#show'
+  post 'wordlists', to: 'wordlists#create'
 end
