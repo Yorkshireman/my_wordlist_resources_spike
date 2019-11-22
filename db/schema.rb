@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_05_06_192111) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "wordlist_entries", force: :cascade do |t|
     t.integer "word_id"
     t.integer "wordlist_id"
