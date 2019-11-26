@@ -37,5 +37,18 @@ class WordlistsController < ApplicationController
         }
       end
     end
+    rescue JWT::DecodeError => e
+      render_error_response(400, e)
+  end
+
+  private
+
+  def render_error_response(status, message)
+    response.status = status
+    render json: {
+      errors: [
+        { title: message }
+      ]
+    }
   end
 end
